@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oge-checker"
+version = "0.2.0"
+description = "Desktop-приложение для распознавания и проверки бланков ОГЭ"
+requires-python = ">=3.10"
+dependencies = ["PyMuPDF>=1.24,<3", "opencv-python-headless>=4.10,<6", "numpy>=1.26,<3"]
+
+[project.optional-dependencies]
+ocr = ["rapidocr==3.10.0", "onnxruntime>=1.20,<2"]
+export = ["openpyxl>=3.1,<4"]
+desktop = ["Pillow>=10,<14", "rapidocr==3.10.0", "onnxruntime>=1.20,<2", "openpyxl>=3.1,<4"]
+build = ["pyinstaller>=6.16,<7"]
+
+[tool.setuptools.package-data]
+oge_checker = ["review.js"]
+
+[project.scripts]
+oge-checker = "oge_checker.__main__:main"
+
+[project.gui-scripts]
+oge-desktop = "oge_checker.desktop:main"
+
+[tool.setuptools.packages.find]
+include = ["oge_checker*"]
