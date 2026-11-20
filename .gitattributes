@@ -1,0 +1,14 @@
+* text=auto
+*.py text eol=lf
+*.js text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.onnx binary
+*.npz binary
+*.xlsx binary
+*.exe binary
+*.gz binary

@@ -15,8 +15,8 @@ class RecognitionTests(unittest.TestCase):
         image = np.full((64, 300), 255, dtype=np.uint8)
         for x in range(0, 300, 10):
             cv2.rectangle(image, (x, 0), (x + 2, 3), 0, -1)
-        cv2.rectangle(image, (40, 25), (65, 28), 0, -1)  # Минус.
-        cv2.rectangle(image, (85, 37), (90, 49), 0, -1)  # Запятая.
+        cv2.rectangle(image, (40, 25), (65, 28), 0, -1)
+        cv2.rectangle(image, (85, 37), (90, 49), 0, -1)
         cleaned, empty = preprocess(image)
         self.assertFalse(empty)
         components, _, stats, _ = cv2.connectedComponentsWithStats(255 - cleaned)
@@ -74,9 +74,9 @@ class RecognitionTests(unittest.TestCase):
             self.assertEqual(manifest.read_bytes(), original)
             self.assertFalse(field['reviewed'])
             self.assertIsNone(field['corrected_text'])
-            self.assertEqual(field['status'], 'needs_review')
+            self.assertEqual(field['status'], 'recognized')
             self.assertEqual(data['run_status'], 'complete')
-            self.assertIn('\\u003c/script>', (output / 'review.html').read_text())
+            self.assertIn('\\u003c/script>', (output / 'review.html').read_text(encoding='utf-8'))
             self.assertTrue((output / field['original']).is_file())
             with self.assertRaises(ValueError):
                 recognize(prepared, output, engine=FakeOCR())

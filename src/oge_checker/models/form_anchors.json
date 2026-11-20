@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "template": "oge_math_form1_v1",
+  "features": 4000,
+  "regions": [
+    [
+      70,
+      610,
+      1920,
+      720
+    ],
+    [
+      70,
+      1050,
+      1920,
+      1090
+    ],
+    [
+      1050,
+      1300,
+      1900,
+      2280
+    ],
+    [
+      70,
+      2300,
+      1900,
+      2330
+    ]
+  ],
+  "description": "SIFT descriptors from whitelisted printed text; all other pixels replaced by white before extraction.",
+  "sha256": "3f7b52314d4be78bfa51f69abb3b5fa3c9fae1b7a83b1eee060b4feb5a38e496"
+}

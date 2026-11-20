@@ -1,0 +1,79 @@
+{
+  "model_id": "oge_digits_hog_svm_v1",
+  "features": "OpenCV HOG32 + relative height/top; deskew; 326 dimensions",
+  "svm": {
+    "C": 12,
+    "gamma": 0.5,
+    "domain_weight": 1
+  },
+  "policy": {
+    "min_neighbor_agreement": 0.4,
+    "max_squared_distance": 3.0,
+    "combination": "supported edit alignment; preserve units; protect visible decimal punctuation"
+  },
+  "training_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    44,
+    88
+  ],
+  "heldout_pages": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    37,
+    39,
+    40,
+    41,
+    42,
+    43,
+    45,
+    46
+  ],
+  "training_characters": 997,
+  "mnist_characters": 6000,
+  "random_seed": 42,
+  "cross_validation": "5 folds, entire pages excluded from training",
+  "cross_validation_baseline": 405,
+  "cross_validation_combined": 434,
+  "cross_validation_fields": 468,
+  "dataset_source": "https://github.com/cvdfoundation/mnist",
+  "dataset_sha256": {
+    "train-images-idx3-ubyte.gz": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+    "train-labels-idx1-ubyte.gz": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c"
+  },
+  "files": {
+    "digits_svm.xml": "61751058373f48c2f72c3c04e8f583aa7a5dc920ae6c5293abeabe1d3647b2db",
+    "digits_neighbors.npz": "7dbfbcf4991862d48ad22f4bbd9360b03479a1053833f5d5521002eb6141f39b"
+  }
+}

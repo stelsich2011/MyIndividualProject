@@ -1,0 +1,8 @@
+rapidocr==3.10.0
+onnxruntime==1.31.0
+opencv-python-headless==4.14.0.94
+PyMuPDF==2.0
+numpy==2.5.4
+Pillow==13.0.0
+openpyxl==3.1.5
+pyinstaller==6.22.3

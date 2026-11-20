@@ -90,8 +90,8 @@ class CorrectionsTests(unittest.TestCase):
             book = load_workbook(root / 'out/students.xlsx')
             self.assertEqual(book['Ученики']['F2'].value, '=1+1')
             self.assertEqual(book['Ученики']['F2'].data_type, 's')
-            self.assertIsNone(book['Ученики']['G2'].value)
-            self.assertIsNone(book['Ученики']['AD2'].value)  # Баллы ещё не вычислены.
+            self.assertEqual(book['Ученики']['G2'].value, '007')
+            self.assertIsNone(book['Ученики']['AD2'].value)
             self.assertEqual(book['Поля']['D3'].value, '007')
             self.assertEqual(corrections.read_bytes(), before)
             self.assertEqual(data['pages'][0]['fields'][0]['raw_text'], '03')

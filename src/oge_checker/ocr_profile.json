@@ -1,0 +1,1 @@
+{"profile":"v5","numeric":true,"numeric_model":"oge_digits_hog_svm_v1","postprocessing":"visible_strokes_v1+decimal_geometry_v2+cell_classifier_v1","description":"Cyrillic sequence OCR combined with cell classifier; policy selected with page-group cross-validation"}

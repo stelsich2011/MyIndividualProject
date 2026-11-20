@@ -44,24 +44,24 @@ class GradingTests(unittest.TestCase):
         self.assertEqual(result['maximum'], 20)
         self.assertEqual(result['tasks'][2]['status'], 'Нет ответа')
 
-    def test_unreviewed_answer_and_block_never_become_final_zero(self):
+    def test_automatic_answers_and_block_do_not_require_confirmation(self):
         page = complete_data()['pages'][0]
         page['fields'][0]['reviewed'] = False
         result = grade_page(page, all_sevens_key())
-        self.assertIsNone(result['total'])
-        self.assertIsNone(result['tasks'][0]['points'])
+        self.assertEqual(result['total'], 19)
+        self.assertEqual(result['tasks'][0]['points'], 1)
         page['fields'][0]['reviewed'] = True
         page['replacements_reviewed'] = False
         result = grade_page(page, all_sevens_key())
         self.assertEqual(result['provisional'], 19)
-        self.assertIsNone(result['total'])
+        self.assertEqual(result['total'], 19)
 
     def test_replacement_overrides_main_and_can_clear_answer(self):
         page = complete_data()['pages'][0]
         page['replacement_answers'] = {'1': '8', '2': ''}
         result = grade_page(page, all_sevens_key())
         self.assertEqual(result['total'], 17)
-        self.assertEqual(result['tasks'][0]['source'], 'Блок замены')
+        self.assertEqual(result['tasks'][0]['source'], 'Ручная замена')
         self.assertEqual(result['tasks'][1]['status'], 'Нет ответа')
 
     def test_unknown_variant_and_failed_preparation_remain_pending(self):
